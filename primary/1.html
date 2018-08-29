@@ -11,7 +11,8 @@
 <body>
     <!-- view -->
     <div id="app">
-
+        <h4 v-show="age>24">age:{{age}}</h4>
+        <h4 v-else>name:{{name}}</h4>
         <fieldset>
             <legend>
                 Create New Person
@@ -61,6 +62,8 @@
         var vm = new Vue({
             el: '#app',
             data: {
+                age: 28,
+                name: "hhh",
                 newPerson: {
                     name: '',
                     age: 0,
