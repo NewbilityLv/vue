@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+
+<body>
+    <div id="vm">
+        <p v-for="item in userProfile">{{item}}</p>
+        <!-- {{a}} -->
+        <ul>
+            <li v-for="n in evenNumbers">{{ n }}</li>
+        </ul>
+        <ul>
+            <li v-for="n in even(evenNumbers)">{{ n }}</li>
+        </ul>
+    </div>
+    <script>
+        var vm = new Vue({
+            el: "#vm",
+            data: {
+                userProfile: {
+                    name: 'Anika'
+                },
+                numbers: [1, 2, 3, 4, 5]
+            },
+            methods: {
+                even: function (numbers) {
+                    return numbers.filter(function (number) {
+                        return number % 2 === 0
+                    })
+                }
+            },
+            computed: {
+                evenNumbers: function () {
+                    return this.numbers.filter(function (number) {
+                        return number % 2 === 0
+                    })
+                }
+            }
+        })
+        Vue.set(vm.userProfile, 'age', 24)
+        vm.userProfile = Object.assign({}, vm.userProfile, {
+            age: 2666
+        })
+    </script>
+</body>
+
+</html>

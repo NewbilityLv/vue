@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+
+<body>
+    <div id="vm">
+        <div v-if="type==='AAA'">rrrr</div>
+        <template v-if="loginType === 'username'">
+            <label>Username</label>
+            <input placeholder="Enter your username">
+        </template>
+        <template v-else>
+            <label>Email</label>
+            <input placeholder="Enter your email address">
+        </template>
+        <template v-if="loginType === 'username'">
+            <label>Username</label>
+            <input placeholder="Enter your username" key="username-input">
+        </template>
+        <template v-else>
+            <label>Email</label>
+            <input placeholder="Enter your email address" key="email-input">
+        </template>
+        <h1 v-if="ok">Hello!</h1>
+        <h1 v-else>oh no!</h1>
+
+        <h1 v-show="ok">Hello!</h1>
+        <!-- //不支持v-else -->
+        <!-- <h1 v-else>oh no!</h1> -->
+    </div>
+    <script>
+        var vm = new Vue({
+            el: "#vm",
+            data: {
+                type: 'AAA',
+                loginType: 'username',
+                ok: true
+            }
+        })
+    </script>
+</body>
+
+</html>
