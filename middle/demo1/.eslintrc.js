@@ -39,7 +39,8 @@ module.exports = {
     //关闭禁止混用tab和空格
     "no-mixed-spaces-and-tabs": [0],
     "quotes": [0, "single"],
-
+    "indent": [0, 4],
+    "eol-last": 0,
     "space-before-function-paren": [0, "always"],//函数定义时括号前面要不要有空格
   }
 };
