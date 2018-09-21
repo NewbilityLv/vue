@@ -2,29 +2,43 @@
   <div class="card">
     <div class="card-header">
       <h5 v-text="theCardTitle"></h5>
-      <button @click="sendMessage" class="btn">给子组件发送一个消息</button>
+      <button @click="momSaidChill" v-if="stopFighting()" class="btn">停止通讯</button>
     </div>
     <div class="card-body">
-      <child-card :parentMessage="parentMessage" @finished='eeeee'></child-card>
+      <brother-card :messageSon="messageson" @brotherSaid='messageDaughter($event)'></brother-card>
+      <sister-card :messageDaughter="messageDaughter" @sisterSaid='messageSon($event)'></sister-card>
     </div>
   </div>
 </template> 
 <script> 
-  import ChildCard from './ChildCard'; 
+  import BrotherCard from './BrotherCard'; 
+  import SisterCard from './SisterCard'; 
   export default { 
     name: 'ParentCard', 
     data: () => ({ 
       theCardTitle: '父组件', 
-      parentMessage: '' }),
+      messagedaughter: '',
+      messageson: '',
+       }),
       components: { 
         ChildCard 
       }, 
       methods: { 
-        sendMessage() {
-          this.parentMessage = `<b>消息来自父组件：</b> (^_^)!!!` 
+        messageDaughter(message) {
+          this.messagedaughter = message
         },
-        eeeee(){
-          this.parentMessage=''
+          messageSon(message) {
+          this.messageson = message
+        },
+        stopFighting(){
+         if(this.messagedaughter&&this.messageson){
+           return true
+         }
+         return false
+        },
+        momSaidChill(){
+          this.messagedaughter=''
+          this.messageson=''
         } 
       } 
    } 
