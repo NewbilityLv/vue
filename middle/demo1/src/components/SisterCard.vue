@@ -7,22 +7,30 @@
             <p class="message-text">我是Sister组件</p>
 
             <button @click="messageBrother">给哥哥发消息</button>
-            <div v-if="messageDaughter" class="alert" v-html="messageDaughter"></div>
+            <div v-if="fromBrother" class="alert" v-html="fromBrother"></div>
         </div>
     </div>
 </template> 
 <script> 
+import { eventBus } from '../main'
     export default { 
         name: 'SisterCard',
         props: ['messageDaughter'], 
         data: () => ({ 
-            theCardTitle: '子组件2'
+            theCardTitle: '子组件2',
+            fromBrother:''
         }) ,
         methods:{
             messageBrother(){
-                this.$emit('sisterSaid123','写作业写作业写作业')
+                eventBus.$emit('sisterSaid','写作业写作业写作业')
+            },
+           
+        },
+         created(){
+                eventBus.$on('brotherSaid',(message)=>{
+                    this.fromBrother=message
+                })
             }
-        }
       
     } 
 </script>

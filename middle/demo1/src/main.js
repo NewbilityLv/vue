@@ -7,6 +7,7 @@ import router from './router';
 import * as uiv from 'uiv';
 Vue.config.productionTip = false;
 Vue.use(uiv, { prefix: 'uiv' });
+export const eventBus = new Vue();
 /* eslint-disable no-new */
 new Vue({
 	el: '#app',
