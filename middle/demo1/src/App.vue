@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <!-- <img src="./assets/logo.png"> -->
-     <date-picker v-model="date" format="yyyy/MMMM/dd"/>
+    <!-- <date-picker v-model="date" format="yyyy/MMMM/dd"/> -->
     <router-view/>
   </div>
 </template>

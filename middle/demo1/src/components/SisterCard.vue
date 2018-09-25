@@ -6,7 +6,7 @@
         <div class="message-body">
             <p class="message-text">我是Sister组件</p>
 
-            <button @click="messageBrother">OK</button>
+            <button @click="messageBrother">给哥哥发消息</button>
             <div v-if="messageDaughter" class="alert" v-html="messageDaughter"></div>
         </div>
     </div>
@@ -18,9 +18,9 @@
         data: () => ({ 
             theCardTitle: '子组件2'
         }) ,
-        method:{
+        methods:{
             messageBrother(){
-                this.$emit('sisterSaid','写作业')
+                this.$emit('sisterSaid123','写作业写作业写作业')
             }
         }
       

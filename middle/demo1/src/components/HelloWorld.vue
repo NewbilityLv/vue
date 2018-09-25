@@ -6,7 +6,7 @@
     </div>
     <div class="card-body">
       <brother-card :messageSon="messageson" @brotherSaid='messageDaughter($event)'></brother-card>
-      <sister-card :messageDaughter="messageDaughter" @sisterSaid='messageSon($event)'></sister-card>
+      <sister-card :messageDaughter="messagedaughter" @sisterSaid123='messageSon($event)'></sister-card>
     </div>
   </div>
 </template> 
@@ -21,7 +21,8 @@
       messageson: '',
        }),
       components: { 
-        ChildCard 
+        BrotherCard, 
+        SisterCard, 
       }, 
       methods: { 
         messageDaughter(message) {
